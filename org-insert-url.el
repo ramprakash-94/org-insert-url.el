@@ -23,8 +23,10 @@
 ;;; Code:
 (require 'org)
 
+;; Extracts the text between tag given the url, start-tag and end-tag
 (defun extract-text-in-tag (url start-tag end-tag)
-  (interactive)
+  (interactive "MURL: ")
+  ;; Creates a temporary buffer and fetches the HTML content of the webpage
   (switch-to-buffer "*temp-bookmark*")
   (insert-buffer (url-retrieve-synchronously url))
   (search-forward start-tag nil t)
@@ -38,25 +40,26 @@
 (defun extract-title-tag-from-kill ()
   (extract-text-in-tag (current-kill 0) "<title>" "</"))
 
+;; This function takes a URL as an optional argument if passed
+;; If not, it takes it from user
 (defun org-insert-url(&optional url)
-  "Prompt user to enter a file name, with completion and history support."
   (interactive)
-  (if (not url)
-  (setq url (read-string "Enter URL: ")))
-  (extract-text-in-tag url "<title>" "</")
-  (org-insert-heading-respect-content)
-  (insert "[[" url "][" extracted-title "]]") 
+  (unless url
+    (setq url (read-string "Enter URL: ")))
+  (extract-text-in-tag url "<title>" "</") ; Extracts title
+  (org-insert-heading-respect-content) ; Inserts a heading/subheading
+  (insert "[[" url "][" extracted-title "]]") ; Inserts the URL as a hyperlink
   (open-line 1))
 
+;; This function inserts URL using the latest item from clipboard
 (defun org-insert-url-from-kill()
   (interactive)
   (org-insert-url (current-kill 0)))
 
 
+;; The hotkey that I use for this:
 ;; (global-set-key (kbd "M-b") 'org-insert-url-from-kill)
 
 (provide 'org-insert-url)
 
 ;;; org-insert-url.el ends here
-
-
