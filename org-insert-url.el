@@ -6,7 +6,7 @@
 ;; Version: 0.1
 ;; Package-Requires: ((org "9.0"))
 ;; Keywords: url, bookmark, org
-;; URL: http://example.com/jrhacker/superfrobnicate
+;; URL: https://github.com/ramprakash-94/org-insert-url.el
 
 ;;; Commentary:
 
@@ -24,7 +24,7 @@
 (require 'org)
 
 (defun extract-text-in-tag (url start-tag end-tag)
-  (interactive "MURL: ")
+  (interactive)
   (switch-to-buffer "*temp-bookmark*")
   (insert-buffer (url-retrieve-synchronously url))
   (search-forward start-tag nil t)
