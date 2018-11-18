@@ -55,4 +55,8 @@
 
 ;; (global-set-key (kbd "M-b") 'org-insert-url-from-kill)
 
+(provide 'org-insert-url)
+
+;;; org-insert-url.el ends here
+
 
