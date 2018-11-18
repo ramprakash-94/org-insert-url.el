@@ -8,4 +8,8 @@ with a hyperlink to the URL.
 It also offers a function to directly take the URL from your clipboard
 and insert it as a new bullet in your org document.
 
+![Copy URL](https://raw.githubusercontent.com/ramprakash-94/org-insert-url.el/master/screnshots/1.png)
+![Command](https://raw.githubusercontent.com/ramprakash-94/org-insert-url.el/master/screnshots/2.png)
+![Result](https://raw.githubusercontent.com/ramprakash-94/org-insert-url.el/master/screnshots/3.png)
+
 
