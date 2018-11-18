@@ -8,6 +8,8 @@ with a hyperlink to the URL.
 It also offers a function to directly take the URL from your clipboard
 and insert it as a new bullet in your org document.
 
+See [Screenshots](#Screenshots)
+
 ## Configuration
 
 * org-insert-url allows the user to enter the URL into the minibuffer. 
@@ -20,7 +22,6 @@ Both functions can be mapped to custom keybindings.
 (global-set-key (kbd <some-key>) 'org-insert-url-from-kill)
 ```
 
-See [Screenshots](#Screenshots)
 ## Screenshots
 ![Copy URL](https://raw.githubusercontent.com/ramprakash-94/org-insert-url.el/master/screenshots/1.png)
 ![Command](https://raw.githubusercontent.com/ramprakash-94/org-insert-url.el/master/screenshots/2.png)
