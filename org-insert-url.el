@@ -15,16 +15,11 @@
 ;; extracts the title from the webpage and inserts it into your org document 
 ;; with a hyperlink to the URL.
 
-;; It also offers a function to directly take the URL from your clipboard
-;; and insert it as new bullet in your org document.
-
-;; Full documentation is available as an Info manual.
-
 ;;; Code:
 (require 'org)
 
 ;; Extracts the text between tag given the url, start-tag and end-tag
-(defun extract-text-in-tag (url start-tag end-tag)
+(defun org-insert-url-extract-text-in-tag (url start-tag end-tag)
   (interactive "MURL: ")
   ;; Creates a temporary buffer and fetches the HTML content of the webpage
   (switch-to-buffer "*temp-bookmark*")
@@ -37,7 +32,7 @@
   (setq extracted-title (buffer-substring title-start title-end))
   (kill-buffer "*temp-bookmark*"))
 
-(defun extract-title-tag-from-kill ()
+(defun org-insert-url-extract-title-tag-from-kill ()
   (extract-text-in-tag (current-kill 0) "<title>" "</"))
 
 ;; This function takes a URL as an optional argument if passed
